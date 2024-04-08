@@ -22,17 +22,17 @@ use App\Http\Controllers\AjaxController;
 |
 */
 
-// Route::prefix('admin')->group(function () {
-//     Route::get('/login', [UserController::class, 'getLogin']);
-//     Route::post('/login', [UserController::class, 'postLogin']);
-//     Route::get('/logout', [UserController::class, 'getLogOutAdmin']);
-// });
+Route::prefix('admin')->group(function () {
+    Route::get('/login', [UserController::class, 'getLogin']);
+    Route::post('/login', [UserController::class, 'postLogin']);
+    Route::get('/logout', [UserController::class, 'getLogOutAdmin']);
+});
 
-// Route::get('login', [PagesController::class, 'getLogin']);
-// Route::post('login', [PagesController::class, 'postLogin']);
-// Route::get('signup', [PagesController::class, 'getSignup']);
-// Route::post('signup', [PagesController::class, 'postSignup']);
-// Route::get('logout', [PagesController::class, 'getLogout']);
+Route::get('login', [PagesController::class, 'getLogin']);
+Route::post('login', [PagesController::class, 'postLogin']);
+Route::get('signup', [PagesController::class, 'getSignup']);
+Route::post('signup', [PagesController::class, 'postSignup']);
+Route::get('logout', [PagesController::class, 'getLogout']);
 
 
 Route::get('/', [PagesController::class, 'trangchu']);
@@ -42,8 +42,8 @@ Route::get('/video', [PagesController::class, 'video']);
 Route::get('/news/{id}_{sort_title}.html', [PagesController::class, 'detailsNews']);
 Route::get('/subcategory/{id}_{sort_name}.html', [PagesController::class, 'subcategory']);
 Route::get('/category/{id}_{sort_name}.html', [PagesController::class, 'category']);
-// Route::get('/user/{id}', [PagesController::class, 'userDetails']);
-// Route::get('/trangcanhan', [PagesController::class, 'userDetails']);
+Route::get('/user/{id}', [PagesController::class, 'userDetails']);
+Route::get('/trangcanhan', [PagesController::class, 'userDetails']);
 Route::get('/editimg.html', [PagesController::class, 'getEditImg']);
 Route::post('/editimg.html', [PagesController::class, 'postEditImg']);
 Route::post('/comment/{id}', [CommentController::class, 'comment']);
@@ -73,16 +73,16 @@ Route::middleware('staff')->group(function () {
             Route::get('/block/{id}', [SubcategoryController::class, 'postNoActive']);
             Route::get('/delete/{id}', [SubcategoryController::class, 'getDelete']);
         });
-        // Route::prefix('user')->group(function () {
-        //     Route::get('/list', [UserController::class, 'list']);
-        //     Route::get('/create', [UserController::class, 'getCreate']);
-        //     Route::post('/create', [UserController::class, 'postCreate']);
-        //     Route::get('/edit/{id}', [UserController::class, 'getEdit']);
-        //     Route::post('/edit/{id}', [UserController::class, 'postEdit']);
-        //     Route::get('/active/{id}', [UserController::class, 'postActive']);
-        //     Route::get('/block/{id}', [UserController::class, 'postNoActive']);
-        //     Route::get('/delete/{id}', [UserController::class, 'getDelete']);
-        // });
+        Route::prefix('user')->group(function () {
+            Route::get('/list', [UserController::class, 'list']);
+            Route::get('/create', [UserController::class, 'getCreate']);
+            Route::post('/create', [UserController::class, 'postCreate']);
+            Route::get('/edit/{id}', [UserController::class, 'getEdit']);
+            Route::post('/edit/{id}', [UserController::class, 'postEdit']);
+            Route::get('/active/{id}', [UserController::class, 'postActive']);
+            Route::get('/block/{id}', [UserController::class, 'postNoActive']);
+            Route::get('/delete/{id}', [UserController::class, 'getDelete']);
+        });
         Route::prefix('news')->group(function () {
             Route::get('/list', [NewsController::class, 'list']);
             Route::get('/create', [NewsController::class, 'getCreate']);
