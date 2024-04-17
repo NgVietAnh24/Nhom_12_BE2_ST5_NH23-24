@@ -18,11 +18,11 @@ class Category extends Model
 
     public function Subcategory()
     {
-        return $this->hasMany('App\Models\SubCategory','category_id','id');
+        return $this->hasMany('App\Models\SubCategory', 'category_id', 'id');
     }
-    
+
     public function News()
     {
-        return $this->hasManyThrough('App\Models\News','App\Models\Subcategory','category_id','subcategory_id');
+        return $this->hasManyThrough('App\Models\News', 'App\Models\Subcategory', 'category_id', 'subcategory_id');
     }
 }

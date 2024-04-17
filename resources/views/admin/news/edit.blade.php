@@ -34,9 +34,9 @@
                             <h5>Edit news</h5>
                         </div>
                         <div class="card-block">
-                            @if( count($errors) > 0 )
+                            @if(count($errors) > 0)
                             <div class="alert alert-danger">
-                                @foreach( $errors->all() as $arr )
+                                @foreach($errors->all() as $arr)
                                     {{$arr}}<br>
                                 @endforeach
 
@@ -101,12 +101,12 @@
                                     <div class="col-sm-11">
                                         <select id="checkVideo" name="type" class="form-control form-control-primary">
                                             <option value="1"
-                                            @if ($news['type'] ==1)
+                                            @if ($news['type'] == 1)
                                             {!! 'selected' !!}     
                                             @endif 
                                             >Text</option>
                                             <option
-                                            @if ($news['type'] ==0)
+                                            @if ($news['type'] == 0)
                                             {!! 'selected' !!}    
                                             @endif 
                                             value="0">Video</option>
@@ -145,14 +145,14 @@
                                     <div class="col-sm-11 mt-2">
                                         <label class="radio-inline">
                                             <input
-                                            @if( $news['index'] == 1 )
+                                            @if($news['index'] == 1)
                                                 {!! 'checked' !!}
                                             @endif
                                             name="index" value="1"  type="radio">YES
                                         </label>
                                         <label class="radio-inline">
                                             <input
-                                            @if( $news['index'] == 0 )
+                                            @if($news['index'] == 0)
                                             {!! 'checked' !!}
                                             @endif
                                             name="index" value="0"  type="radio">NO
@@ -164,14 +164,14 @@
                                     <div class="col-sm-11 mt-2">
                                         <label class="radio-inline">
                                             <input
-                                            @if( $news['active'] == 1 )
+                                            @if($news['active'] == 1)
                                                 {!! 'checked' !!}
                                             @endif
                                             name="active" value="1"  type="radio">YES
                                         </label>
                                         <label class="radio-inline">
                                             <input
-                                            @if( $news['active'] == 0 )
+                                            @if($news['active'] == 0)
                                                 {!! 'checked' !!}
                                             @endif
                                             name="active" value="0"  type="radio">NO

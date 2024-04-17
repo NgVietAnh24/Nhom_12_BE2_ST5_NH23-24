@@ -54,7 +54,7 @@
                                             <td>{!! $value['category']['name'] !!}</td>
                                             <td>{!! $value['sort_name'] !!}</td>
                                             <td>
-                                                @if ( $value['active'] == 1 )
+                                                @if ($value['active'] == 1)
                                                 <a href="admin/subcategory/block/{!! $value['id'] !!}">
                                                   <img style="width: 40px" src="upload/icon/accept.png" alt="">
                                                 </a>

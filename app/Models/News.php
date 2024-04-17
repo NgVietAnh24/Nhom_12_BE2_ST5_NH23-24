@@ -26,11 +26,13 @@ class News extends Model
         'user_id'
     ];
 
-    public function Subcategory() {
+    public function Subcategory()
+    {
         return $this->belongsTo(Subcategory::class, 'subcategory_id', 'id');
     }
 
-    public function Comment() {
+    public function Comment()
+    {
         return $this->hasMany(Comment::class, 'news_id', 'id');
     }
 }

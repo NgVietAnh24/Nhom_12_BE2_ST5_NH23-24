@@ -17,10 +17,12 @@ class Comment extends Model
         'user_id'
     ];
 
-    public function News(){
+    public function News()
+    {
         return $this->belongsTo(News::class, 'news_id', 'id');
     }
-    public function users(){
+    public function users()
+    {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }

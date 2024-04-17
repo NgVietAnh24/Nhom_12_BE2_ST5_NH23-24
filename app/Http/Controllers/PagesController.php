@@ -15,7 +15,8 @@ use Illuminate\Support\Str;
 class PagesController extends Controller
 {
     //* khởi tạo dữ liệu ban đầu
-    function __construct() {
+    function __construct()
+    {
         $category = Category::all();
         $banner = Banner::all();
         $subcategory = Subcategory::all();
@@ -31,7 +32,8 @@ class PagesController extends Controller
     }
 
     //* trang chủ
-    public function trangchu() {
+    public function trangchu()
+    {
         $videomoinhat = News::get()->where('type', 0)->where('active', 1)->sortByDesc('created_at')->take(4);
         $videonoibat = News::get()->where('type', 0)->where('index', 1)->where('active', 1)->sortByDesc('created_at')->take(4);
 
@@ -45,7 +47,8 @@ class PagesController extends Controller
     }
 
     //* trang blog
-    public function blog() {
+    public function blog()
+    {
         $news = News::where('type', 1)->where('active', 1)->orderby('created_at', 'DESC')->simplePaginate(5);
         $name = 'Blog';
         return view('pages.blog', [
@@ -55,7 +58,8 @@ class PagesController extends Controller
     }
 
     //* trang video
-    public function video() {
+    public function video()
+    {
         $news = News::where('type', 0)->where('active', 1)->orderby('created_at', 'DESC')->paginate(5);
         $name = 'Video';
         return view('pages.blog', [
@@ -65,7 +69,8 @@ class PagesController extends Controller
     }
 
     //* trang chi tiết
-    public function detailsNews($id) {
+    public function detailsNews($id)
+    {
         $news = News::find($id);
         if ($news['type'] == 1) {
             $name = 'Tin tức';
@@ -86,12 +91,14 @@ class PagesController extends Controller
     }
 
     //* trang đăng nhập
-    public function getLogin() {
+    public function getLogin()
+    {
         return view('pages.login');
     }
 
     //* xử lý đăng nhập
-    public function postLogin(Request $request) {
+    public function postLogin(Request $request)
+    {
         $request->validate([
             'username' => 'required',
             'password' => 'required|min:6|max:32',
@@ -101,7 +108,8 @@ class PagesController extends Controller
             'password.min' => 'từ 6-32 kí tự',
             'password.max' => 'từ 6-32 kí tự',
         ]);
-        if (Auth::attempt(['email' => $request['username'], 'password' => $request['password']])
+        if (
+            Auth::attempt(['email' => $request['username'], 'password' => $request['password']])
             || Auth::attempt(['username' => $request['username'], 'password' => $request['password']])
         ) {
             return redirect('/');
@@ -111,12 +119,14 @@ class PagesController extends Controller
     }
 
     //* trang đăng ký
-    public function getSignup() {
+    public function getSignup()
+    {
         return view('pages.signup');
     }
 
     //* xử lý đăng ký
-    public function postSignup(Request $request) {
+    public function postSignup(Request $request)
+    {
         $request->validate([
             'name' => 'required|min:1',
             'email' => 'required|unique:users,email',
@@ -148,14 +158,16 @@ class PagesController extends Controller
     }
 
     //* xử lý đăng xuất
-    public function getLogout() {
+    public function getLogout()
+    {
         Auth::logout();
-        
+
         return redirect('/');
     }
 
     //* trang thông tin user
-    public function userDetails() {
+    public function userDetails()
+    {
         if (Auth::check()) {
             $user = Auth::user();
         } else {
@@ -207,7 +219,8 @@ class PagesController extends Controller
     }
 
     //* xử lý tìm kiếm
-    public function search(Request $request) {
+    public function search(Request $request)
+    {
         $keyword = $request['keyword'];
         $news = News::where('title', 'like', "%$keyword%")->Where('active', 1)->orWhere('summary', 'like', "%$keyword%")->orWhere('content', 'like', "%$keyword%")->take(10)->paginate(5);
 
@@ -221,7 +234,8 @@ class PagesController extends Controller
     }
 
     //* trang báo theo danh mục
-    public function subcategory($id) {
+    public function subcategory($id)
+    {
         $subcategory = SubCategory::find($id);
         $news = News::where('subcategory_id', $id)->paginate(5);
 
@@ -233,10 +247,11 @@ class PagesController extends Controller
     }
 
     //* trang báo theo danh mục con
-    public function category($id) {
+    public function category($id)
+    {
         $category = Category::find($id);
         $news = News::where('category_id', $id)->paginate(5);
-        
+
         return view('pages.category', [
             'name' => $category['name'],
             'title' => $category['name'],

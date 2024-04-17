@@ -51,13 +51,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($category as  $value)
+                                        @foreach($category as $value)
                                         <tr align="center">
                                             <td>{!! $value['id'] !!}</td>
                                             <td>{!! $value['name'] !!}</td>
                                             <td>{!! $value['sort_name'] !!}</td>
                                             <td>
-                                                @if ( $value['active'] == 1 )
+                                                @if ($value['active'] == 1)
                                                 <a href="admin/category/block/{!! $value['id'] !!}">
                                                   <img style="width: 40px" src="upload/icon/accept.png" alt="">
                                                 </a>

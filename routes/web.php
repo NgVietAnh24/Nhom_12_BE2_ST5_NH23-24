@@ -34,7 +34,6 @@ Route::get('signup', [PagesController::class, 'getSignup']);
 Route::post('signup', [PagesController::class, 'postSignup']);
 Route::get('logout', [PagesController::class, 'getLogout']);
 
-
 Route::get('/', [PagesController::class, 'trangchu']);
 Route::get('/blog', [PagesController::class, 'blog']);
 Route::post('/search', [PagesController::class, 'search']);
@@ -109,10 +108,6 @@ Route::middleware('staff')->group(function () {
         });
     });
 });
-
-
-
-
 
 Route::get('ajax/Subcategory/{category_id}', [AjaxController::class, 'getSub']);
 

@@ -36,7 +36,7 @@
 
                         </div>
                         <div class="card-block">
-                            @if(count($errors)>0)
+                            @if(count($errors) > 0)
                             <div class="alert alert-danger">
                                 @foreach($errors->all() as $arr)
                                     {{$arr}}<br>

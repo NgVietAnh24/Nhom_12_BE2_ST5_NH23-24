@@ -33,7 +33,7 @@
                             <a href="admin/user/create" class="text-light"><button class=" btn btn-primary float-right mb-3" >Add</button></a>
                             <div class="dt-responsive table-responsive">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    @if(count($errors)>0)
+                                    @if(count($errors) > 0)
                                     <div class="alert alert-danger">
                                     @foreach($errors->all() as $arr)
                                         {{$arr}}<br>
@@ -70,7 +70,7 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                @if ( $value['active'] == 1)
+                                                @if ($value['active'] == 1)
                                                 <a href="admin/user/block/{!! $value['id'] !!}">
                                                 <img style="width: 40px" src="upload/icon/accept.png">
                                                 </a>

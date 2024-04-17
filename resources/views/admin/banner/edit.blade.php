@@ -34,7 +34,7 @@
                             <h5>Edit Banner</h5>
                         </div>
                         <div class="card-block">
-                            @if(count($errors)>0)
+                            @if(count($errors) > 0)
                             <div class="alert alert-danger">
                                 @foreach($errors->all() as $arr)
                                 {{$arr}}<br>
@@ -60,14 +60,14 @@
                                     <div class="col-sm-11 mt-2">
                                         <label class="radio-inline">
                                             <input
-                                            @if( $banner['active'] == 1 )
+                                            @if($banner['active'] == 1)
                                                 {!! 'checked' !!}
                                             @endif
                                             name="active" value="1"  type="radio">YES
                                         </label>
                                         <label class="radio-inline">
                                             <input
-                                            @if( $banner['active'] == 0 )
+                                            @if($banner['active'] == 0)
                                                 {!! 'checked' !!}
                                             @endif
                                             name="active" value="0"  type="radio">NO

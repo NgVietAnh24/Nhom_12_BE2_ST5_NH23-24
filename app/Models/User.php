@@ -48,10 +48,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function comment(){
-        return $this->hasMany(Comment::class,'user_id','id');
+    public function comment()
+    {
+        return $this->hasMany(Comment::class, 'user_id', 'id');
     }
-    public function news(){
-        return $this->hasMany(News::class,'user_id','id');
+    public function news()
+    {
+        return $this->hasMany(News::class, 'user_id', 'id');
     }
 }

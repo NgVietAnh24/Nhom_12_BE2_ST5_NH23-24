@@ -7,10 +7,11 @@ use App\Models\Subcategory;
 
 class AjaxController extends Controller
 {
-    public function getSub($category_id) {
+    public function getSub($category_id)
+    {
         $subcategory = Subcategory::where('category_id', $category_id)->get();
-        foreach ($subcategory as $value){
-            echo '<option value="'.$value['id'].'">'.$value['name'].'</option>';
+        foreach ($subcategory as $value) {
+            echo '<option value="' . $value['id'] . '">' . $value['name'] . '</option>';
         }
     }
 }

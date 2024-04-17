@@ -47,7 +47,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ( $banner as $value )
+                                        @foreach ($banner as $value)
                                         <tr align="center">
                                             <td>{!! $value['id'] !!}</td>
                                             <td>
@@ -55,7 +55,7 @@
                                             <img width="100px" src="upload/banner/{!! $value['image'] !!}" alt="">
                                             </td>
                                             <td>
-                                                @if ( $value['active'] == 1 )
+                                                @if ($value['active'] == 1)
                                                 <a href="admin/banner/block/{!! $value['id'] !!}">
                                                   <img style="width: 40px" src="upload/icon/accept.png" alt="">
                                                 </a>

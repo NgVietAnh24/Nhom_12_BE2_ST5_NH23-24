@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Subcategory;
 use App\Models\News;
+
 class SubcategoryController extends Controller
 {
     //* show tất cả danh mục con
@@ -95,16 +96,13 @@ class SubcategoryController extends Controller
 
     public function getDelete($id)
     {
-        $check = count(News::where('subcategory_id',$id)->get());
-        if($check ==0)
-        {
+        $check = count(News::where('subcategory_id', $id)->get());
+        if ($check == 0) {
             Subcategory::destroy($id);
-        return redirect('admin/subcategory/list');
-        }
-        else
-        {
+            return redirect('admin/subcategory/list');
+        } else {
             return redirect('admin/subcategory/list')->with('thongbao', 'Không thể xóa vì tồn tại bài viết');
         }
-        
+
     }
 }

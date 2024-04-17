@@ -7,7 +7,7 @@
                     <i class="fas fa-ellipsis-v"></i>
                 </div>
                 <div class="logo">
-                    @if( $about != null)
+                    @if($about != null)
                     <img src="upload/logo/{!! $about['logo'] !!}" alt="">
                     @endif
                 </div>
