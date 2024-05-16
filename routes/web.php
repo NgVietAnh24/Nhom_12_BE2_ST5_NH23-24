@@ -10,6 +10,8 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AjaxController;
+use App\Http\Controllers\ShareButtonController;
+use Jorenvh\Share\Share;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +48,7 @@ Route::get('/trangcanhan', [PagesController::class, 'userDetails']);
 Route::get('/editimg.html', [PagesController::class, 'getEditImg']);
 Route::post('/editimg.html', [PagesController::class, 'postEditImg']);
 Route::post('/comment/{id}', [CommentController::class, 'comment']);
+Route::get('/post',[ShareButtonController::class,'share']);
 
 Route::middleware('staff')->group(function () {
     Route::prefix('admin')->group(function () {
@@ -112,3 +115,4 @@ Route::middleware('staff')->group(function () {
 Route::get('ajax/Subcategory/{category_id}', [AjaxController::class, 'getSub']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+

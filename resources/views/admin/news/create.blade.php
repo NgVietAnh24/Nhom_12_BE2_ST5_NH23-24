@@ -80,7 +80,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-1 col-form-label">Image</label>
                                     <div class="col-sm-11">
-                                        <input type="file" name="Image" class="form-control">
+                                        <input type="file" name="Image" class="form-control" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -115,7 +115,7 @@
                                     <div class="col-sm-11">
                                         <textarea name="content" id="editor" placeholder="Enter content...">
                                         </textarea>
-                                    {{-- <textarea class="form-control" name="content" rows="5" id="editor1"></textarea> --}}
+                                    {{-- <textarea class="form-control" name="content" rows="5" id="editor1" require></textarea> --}}
                                     </div>
                                 </div>
                                 <div class="form-group row">

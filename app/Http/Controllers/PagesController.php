@@ -209,7 +209,7 @@ class PagesController extends Controller
             }
             $file->move('upload/avatar', $img);
             if ($user['image'] != '') {
-                if ($user['image'] != 'avatar.jpg') {
+                if ($user['image'] != $user['image']) {
                     unlink('upload/avatar/' . $user->Image);
                 }
             }

@@ -76,10 +76,10 @@
                                     <input name="role" value="1"  type="radio">Admin
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="role" value="2" checked="" type="radio">Staff
+                                    <input name="role" value="2" checked="" type="radio">Nhân Viên
                                 </label>
                                 <label class="radio-inline">
-                                    <input name="role" value="0" checked="" type="radio">Normal
+                                    <input name="role" value="0" checked="" type="radio">Bình Thường
                                 </label>
                             </div>
                             <div class="form-group">
